@@ -1,0 +1,46 @@
+https://developer.servicenow.com/dev.do
+
+
+
+Services : 
+
+API implementation and reference
+Cloud Observability
+Customer Service Management
+Employee Service Management
+Enterprise Architecture
+Environmental, Social and Governance
+Field Service Management
+Governance, Risk, and Compliance
+Hyperautomation and low-code
+Impact
+Industry Products
+IT Asset Management
+IT Operations Management
+IT Service Management
+Now Platform
+Operational Technology Management
+Sales and Order Management
+Security Operations
+Service Bridge
+Service Management - Other
+Solutions
+Source-to-Pay Operations
+Strategic Portfolio Management
+
+
+
+
+Role, workspace, History, Favourities, Problems(incident), global Search(seo optimisation) match we can edit incident, notifications, user update psw and properties.
+
+impersonate user-> access desktop,  should be in table (admin can access)
+
+Incident Application/Table
+
+
+
+
+
+
+
+
