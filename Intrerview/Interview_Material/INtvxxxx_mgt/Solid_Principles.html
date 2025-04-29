@@ -1,0 +1,101 @@
+<link rel="preload" href="https://cdn.oaistatic.com/_next/static/css/b63ea181e7b05f9c.css" as="style" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.oaistatic.com/_next/static/css/b63ea181e7b05f9c.css" crossorigin="anonymous" data-n-g=""/>
+<div style ='margin-left:auto;margin-right:auto; width:90%;'>
+<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"><div class="markdown prose w-full break-words dark:prose-invert light"><h3>SOLID Principles of Object-Oriented Design</h3><p>The SOLID principles are a set of guidelines that help software developers create maintainable, scalable, and robust object-oriented systems. These principles were introduced by Robert C. Martin and are considered fundamental to designing clean and efficient code.</p><h4>1. <strong>Single Responsibility Principle (SRP)</strong></h4><p><strong>Definition</strong>: A class should have only one reason to change, meaning it should have only one job or responsibility.</p><p><strong>Explanation</strong>: Each class should focus on a single task or functionality. This makes the class easier to maintain, understand, and test. If a class has more than one responsibility, changes to one responsibility may affect the other, leading to code that is more difficult to maintain.</p><p><strong>Example</strong>:</p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>javascript</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name, email</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">email</span> = email;
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">UserRepository</span> {
+    <span class="hljs-title function_">save</span>(<span class="hljs-params">user</span>) {
+        <span class="hljs-comment">// Code to save the user to the database</span>
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">EmailService</span> {
+    <span class="hljs-title function_">sendEmail</span>(<span class="hljs-params">user, message</span>) {
+        <span class="hljs-comment">// Code to send an email to the user</span>
+    }
+}
+</code></div></div></pre><ul><li><code>User</code> class handles user data.</li><li><code>UserRepository</code> handles database operations.</li><li><code>EmailService</code> handles email-related tasks.</li></ul><h4>2. <strong>Open/Closed Principle (OCP)</strong></h4><p><strong>Definition</strong>: Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.</p><p><strong>Explanation</strong>: You should be able to add new functionality to a class without changing its existing code. This promotes the use of polymorphism and abstraction to achieve flexibility and maintainability.</p><p><strong>Example</strong>:</p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>javascript</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Notification</span> {
+    <span class="hljs-title function_">send</span>(<span class="hljs-params">message</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">'This method should be overridden'</span>);
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">EmailNotification</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Notification</span> {
+    <span class="hljs-title function_">send</span>(<span class="hljs-params">message</span>) {
+        <span class="hljs-comment">// Send email notification</span>
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">SMSNotification</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Notification</span> {
+    <span class="hljs-title function_">send</span>(<span class="hljs-params">message</span>) {
+        <span class="hljs-comment">// Send SMS notification</span>
+    }
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">notifyUser</span>(<span class="hljs-params">notification, message</span>) {
+    notification.<span class="hljs-title function_">send</span>(message);
+}
+</code></div></div></pre><ul><li><code>Notification</code> class is open for extension (new notification types) but closed for modification (the base class is not altered).</li></ul><h4>3. <strong>Liskov Substitution Principle (LSP)</strong></h4><p><strong>Definition</strong>: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.</p><p><strong>Explanation</strong>: Derived classes must be substitutable for their base classes. This means that the subclass should enhance the base class behavior without altering its core functionality.</p><p><strong>Example</strong>:</p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>javascript</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bird</span> {
+    <span class="hljs-title function_">fly</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Flying'</span>;
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Sparrow</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Bird</span> {
+    <span class="hljs-comment">// Inherits fly method</span>
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Penguin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Bird</span> {
+    <span class="hljs-title function_">fly</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">'Penguins cannot fly'</span>);
+    }
+}
+</code></div></div></pre><ul><li>The <code>Penguin</code> class violates the Liskov Substitution Principle because it changes the expected behavior of the <code>fly</code> method.</li></ul><h4>4. <strong>Interface Segregation Principle (ISP)</strong></h4><p><strong>Definition</strong>: A client should not be forced to implement an interface it doesn't use.</p><p><strong>Explanation</strong>: Instead of creating a large, monolithic interface, create smaller, more specific interfaces. This prevents classes from being forced to implement methods they do not need.</p><p><strong>Example</strong>:</p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>javascript</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Printer</span> {
+    <span class="hljs-title function_">print</span>(<span class="hljs-params"><span class="hljs-variable language_">document</span></span>) {
+        <span class="hljs-comment">// Print the document</span>
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Scanner</span> {
+    <span class="hljs-title function_">scan</span>(<span class="hljs-params"><span class="hljs-variable language_">document</span></span>) {
+        <span class="hljs-comment">// Scan the document</span>
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MultiFunctionPrinter</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">printer, scanner</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">printer</span> = printer;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">scanner</span> = scanner;
+    }
+
+    <span class="hljs-title function_">print</span>(<span class="hljs-params"><span class="hljs-variable language_">document</span></span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">printer</span>.<span class="hljs-title function_">print</span>(<span class="hljs-variable language_">document</span>);
+    }
+
+    <span class="hljs-title function_">scan</span>(<span class="hljs-params"><span class="hljs-variable language_">document</span></span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">scanner</span>.<span class="hljs-title function_">scan</span>(<span class="hljs-variable language_">document</span>);
+    }
+}
+</code></div></div></pre><ul><li>The <code>MultiFunctionPrinter</code> class can print and scan, but it uses separate interfaces for each task, adhering to the ISP.</li></ul><h4>5. <strong>Dependency Inversion Principle (DIP)</strong></h4><p><strong>Definition</strong>: High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.</p><p><strong>Explanation</strong>: Instead of depending on concrete classes, rely on abstractions (interfaces). This makes the system more flexible and easier to modify.</p><p><strong>Example</strong>:</p><pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>javascript</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>Copy code</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> {
+    <span class="hljs-title function_">send</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-comment">// Implementation for sending mail</span>
+    }
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Notification</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">mailService</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">mailService</span> = mailService;
+    }
+
+    <span class="hljs-title function_">notify</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">mailService</span>.<span class="hljs-title function_">send</span>();
+    }
+}
+</code></div></div></pre><ul><li>The <code>Notification</code> class depends on the <code>MailService</code> abstraction, not its implementation. This allows the notification system to be easily extended or modified by swapping out the mail service with another implementation.</li></ul><h3>Summary</h3><ul><li><strong>SRP</strong>: Each class should have one responsibility.</li><li><strong>OCP</strong>: Classes should be open for extension, but closed for modification.</li><li><strong>LSP</strong>: Subclasses should be substitutable for their base classes.</li><li><strong>ISP</strong>: Use small, specific interfaces rather than a single, general-purpose interface.</li><li><strong>DIP</strong>: Depend on abstractions, not concrete implementations.</li></ul><p>By following these principles, you can design software that is more modular, easier to understand, and more resilient to change.</p></div></div>
+
+</div>
